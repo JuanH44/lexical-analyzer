@@ -47,8 +47,10 @@ Token getRelationalOperator(char ** input){
 				} else if (c == '>'){
 					state = 6;
 				} else {
+					
 					tk.name = "ERROR";
-					cout<<"Not a RelOP"<<endl; //pending function
+					cout<<string(index1, *input)<<" : Not a RelOP"<<endl; //pending function
+					backtrack(input);
 					return tk;
 				}
 				break;
@@ -142,7 +144,7 @@ void getTokens(string stringToProcess){
 }
 
 int main(int argc, char const *argv[]){
-	string h ("<=11 <>5>=10 ");
+	string h ("3<=11 <>5 >=10");
 	
 	getTokens(h);
 

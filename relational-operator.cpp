@@ -32,7 +32,7 @@ void fail(Token tk);
 void printPointer(string name, char * pointer);
 
 int main(int argc, char const *argv[]){
-	string h ("9<=67 <>5 >=1 >aa=7 6 <");
+	string h ("9<=67 <>5 >=1 >aa=7 6 <y");
 	
 	getTokens(h);
 
@@ -46,12 +46,8 @@ void getTokens(string stringToProcess){
 
 	char * startOfString = convertToCharArray(stringToProcess);
 	char * index = startOfString;
-	char * startOfToken;
 	int i = 0;
 	while (*index != '\0' && i < 50){ // i avoids infinite loop
-		char * startOfToken;
-		//cout << "s: " << index << endl;
-
 		Token tk = getRelationalOperator(&index);
 		if(tk.name == "RelOp"){
 			//cout<<tk.name <<" : "<<tk.attrib<<endl;
